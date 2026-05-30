@@ -1,40 +1,34 @@
 # JWTNotesAPI
 
-A secure ASP.NET Core Web API for note management using JWT Authentication and SQL Server.
+JWTNotesAPI is a secure ASP.NET Core Web API developed for managing personal notes with JWT-based authentication and authorization. The application allows users to register, log in, and securely perform CRUD operations on their notes.
 
 ---
 
-# Features
+## Features
 
-* User Registration
-* User Login
-* JWT Token Authentication
-* Password Hashing using BCrypt
-* Add Notes
-* Retrieve Notes
-* Update Notes
-* Delete Notes
-* User-specific Note Access
-* Input Validation
-* Error Handling
-* Swagger API Documentation
+* User Registration and Login
+* JWT Token Generation and Authentication
+* Secure Password Hashing using BCrypt
+* Add, View, Update, and Delete Notes
+* User-specific Note Management
+* Input Validation and Error Handling
+* Swagger API Testing Support
 
 ---
 
-# Technologies Used
+## Technologies Used
 
 * ASP.NET Core Web API
 * Entity Framework Core
 * SQL Server
 * JWT Authentication
 * BCrypt.Net
-* Swagger/OpenAPI
+* Swagger / OpenAPI
 
 ---
 
-# Project Structure
+## Folder Structure
 
-```text
 JWTNotesAPI
 │
 ├── Controllers
@@ -57,133 +51,148 @@ JWTNotesAPI
 │
 ├── Program.cs
 ├── appsettings.json
-```
 
 ---
-
-# API Endpoints
 
 ## Authentication APIs
 
 ### Register User
 
-http
+Endpoint:
 POST /api/auth/register
-```
 
-Request Body:
+Sample Request:
 
-json
 {
-  "username": "notetaker",
-  "password": "SecureNote123!"
+"username": "notetaker",
+"password": "SecureNote123!"
 }
-```
 
 ---
 
-Login User
+### Login User
 
-```http
+Endpoint:
 POST /api/auth/login
-```
 
-Request Body:
+Sample Request:
 
-```json
 {
-  "username": "notetaker",
-  "password": "SecureNote123!"
+"username": "notetaker",
+"password": "SecureNote123!"
 }
-```
 
-Response:
+Sample Response:
 
-```json
 {
-  "token": "<jwt-token>",
-  "expires_in": 3600,
-  "user": {
-    "username": "notetaker"
-  }
+"token": "<jwt-token>",
+"expires_in": 3600,
+"user": {
+"username": "notetaker"
 }
-```
+}
 
 ---
 
-# Notes APIs
+## Notes APIs
 
-Add Note
+### Add Note
 
-```http
+Endpoint:
 POST /api/notes
-```
 
 Request Body:
 
-```json
 {
-  "title": "Grocery List",
-  "content": "Eggs, Milk, Bread"
+"title": "Grocery List",
+"content": "Eggs, Milk, Bread"
 }
-```
 
 ---
 
-Get Notes
+### Get Notes
 
-```http
+Endpoint:
 GET /api/notes
-```
 
 ---
 
-Update Note
+### Update Note
 
-```http
+Endpoint:
 PUT /api/notes/{id}
-```
 
 Request Body:
 
-```json
 {
-  "title": "Updated Grocery List",
-  "content": "Eggs, Milk, Bread, Butter"
+"title": "Updated Grocery List",
+"content": "Eggs, Milk, Bread, Butter"
 }
-```
 
 ---
 
- Delete Note
+### Delete Note
 
-```http
+Endpoint:
 DELETE /api/notes/{id}
-```
 
 ---
 
-# Security Features
+## Security Features
 
-* Passwords are securely hashed using BCrypt.
-* JWT Authentication is implemented for secure API access.
-* Only authenticated users can manage notes.
-* Users can only access their own notes.
+* Passwords are encrypted using BCrypt hashing.
+* JWT Authentication secures all Notes APIs.
+* Only authenticated users can access protected endpoints.
+* Each user can manage only their own notes.
 
 ---
 
-# Database
+## Database Information
 
-Database Used:
+Database: SQL Server
 
-```text
-SQL Server
-```
-
-Tables:
+Tables Used:
 
 * Users
 * Notes
+
+---
+
+## Running the Application
+
+1. Open the project in Visual Studio.
+
+2. Update the SQL Server connection string in appsettings.json.
+
+3. Open Package Manager Console and run:
+
+Add-Migration InitialCreate
+
+Update-Database
+
+4. Run the application using F5.
+
+5. Swagger UI will open automatically for API testing.
+
+---
+
+## JWT Authorization in Swagger
+
+1. Login using the Login API.
+2. Copy the generated JWT token.
+3. Click the Authorize button in Swagger.
+4. Paste the token.
+5. Access protected Notes APIs.
+
+---
+
+## Validation Implemented
+
+* Unique Username Validation
+* Password Strength Validation
+* Required Field Validation
+
+---
 
 
 
