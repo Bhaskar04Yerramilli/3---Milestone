@@ -67,13 +67,13 @@ JWTNotesAPI
 
 ### Register User
 
-```http
+http
 POST /api/auth/register
 ```
 
 Request Body:
 
-```json
+json
 {
   "username": "notetaker",
   "password": "SecureNote123!"
@@ -82,7 +82,7 @@ Request Body:
 
 ---
 
-### Login User
+Login User
 
 ```http
 POST /api/auth/login
@@ -113,7 +113,7 @@ Response:
 
 # Notes APIs
 
-## Add Note
+Add Note
 
 ```http
 POST /api/notes
@@ -130,7 +130,7 @@ Request Body:
 
 ---
 
-## Get Notes
+Get Notes
 
 ```http
 GET /api/notes
@@ -138,7 +138,7 @@ GET /api/notes
 
 ---
 
-## Update Note
+Update Note
 
 ```http
 PUT /api/notes/{id}
@@ -155,7 +155,7 @@ Request Body:
 
 ---
 
-## Delete Note
+ Delete Note
 
 ```http
 DELETE /api/notes/{id}
